@@ -28,10 +28,14 @@ You must use the standard `net/http` library. You are provided with `github.com/
 - If the server does not receive a ping from a working worker within **5 seconds**, or if the WebSocket connection drops abruptly, the server MUST immediately mark their assigned job as "failed" and handle retry logic just like a standard failure.
 
 ## Testing
-You can run your server with:
+You can run your server manually in the terminal to test your endpoints with `curl` or Postman:
 ```bash
 go run main.go
 ```
 
-Test your REST API with `curl` or Postman.
-When you are ready, our hidden evaluation suite will simulate dozens of workers, inject race conditions, and abruptly disconnect workers to test your concurrent recovery logic!
+To run the local visible test cases, click the **Run Code** button in your IDE or run:
+```bash
+go test -v
+```
+
+When you are ready, click **Submit**. Our hidden evaluation suite will spin up your server and simulate dozens of workers, inject race conditions, and abruptly disconnect workers to test your concurrent recovery logic!

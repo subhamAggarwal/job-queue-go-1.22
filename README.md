@@ -27,15 +27,30 @@ You must use the standard `net/http` library. You are provided with `github.com/
 - Workers will send a `{"action": "ping"}` message every 3 seconds.
 - If the server does not receive a ping from a working worker within **5 seconds**, or if the WebSocket connection drops abruptly, the server MUST immediately mark their assigned job as "failed" and handle retry logic just like a standard failure.
 
-## Testing
-You can run your server manually in the terminal to test your endpoints with `curl` or Postman:
+## Development Guide
+
+### How to Run Locally
+
+> **⚠️ CRITICAL: Port Binding**
+> To be evaluated, your servers MUST bind to `0.0.0.0` (all interfaces) rather than `localhost` or `127.0.0.1`.
+
+This is a full-stack application. You must run both the backend and frontend servers simultaneously in separate terminal tabs.
+
+**1. Start the Backend Server (Port 8080)**
 ```bash
 go run main.go
 ```
 
-To run the local visible test cases, click the **Run Code** button in your IDE or run:
+**2. Start the Frontend Server (Port 5173)**
 ```bash
-go test -v
+cd frontend && npm run dev
 ```
 
-When you are ready, click **Submit**. Our hidden evaluation suite will spin up your server and simulate dozens of workers, inject race conditions, and abruptly disconnect workers to test your concurrent recovery logic!
+### How to Test
+
+You can execute the visible test suite locally to verify your solution against the visible test cases:
+```bash
+go test ./...
+```
+
+When you click **Submit**, the platform will run an identical evaluation suite against your code using the same command.

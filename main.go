@@ -55,6 +55,6 @@ func main() {
 	
 	// TODO: Implement worker heartbeat failure detection
 
-	log.Println("Job Queue Server starting on :8080...")
-	log.Fatal(http.ListenAndServe(":8080", corsMiddleware(http.DefaultServeMux)))
+	log.Println("Job Queue Server starting on :8081...")
+	log.Fatal(http.ListenAndServe(":8081", corsMiddleware(http.DefaultServeMux)))
 }

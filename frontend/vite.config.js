@@ -16,7 +16,7 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       [API_PROXY_KEY]: {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:8081',
         changeOrigin: true,
         rewrite: (path) => path.replace(new RegExp(API_PROXY_KEY), '/api/')
       }
